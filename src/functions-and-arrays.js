@@ -14,6 +14,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(wordsArr) {
   let letterCount = 0;
   let index = 0;
+  if (wordsArr.length > 0){
   for (let i = 0; i < wordsArr.length; i++){
     if (letterCount < wordsArr[i].length){
       letterCount = wordsArr[i].length;
@@ -21,6 +22,10 @@ function findLongestWord(wordsArr) {
     }
   }
 return wordsArr[index];
+  }
+  else {
+    return null;
+  }
 }
 console.log(findLongestWord(words));
 
@@ -52,9 +57,10 @@ function sum(mixed) {
     else if(typeof(mixed[i]) === true){
       sum = sum + 1;
     }
-    else {
-      sum = sum + mixed[i];
+    else { 
+       sum = sum + mixed[i];
     }
+    
 
   }
   return sum;
@@ -68,8 +74,14 @@ console.log(sum(mixedArr));
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersArr) {
-  let average = sumNumbers(numbersArr)/numbersArr.length;
+  if (numbersArr.length > 0) {
+  let average = sumNumbers(numbersArr)/numbersArr.length; 
   return average;
+  }
+  else {
+    return null;
+  }
+  
 }
 
 console.log(averageNumbers(numbersAvg));
@@ -81,18 +93,27 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(stringArr) {
   let sum = 0;
-  for(let i = 0; i < stringArr.length; i++){
+  if (stringArr.length > 0) {
+    for(let i = 0; i < stringArr.length; i++){
     sum = sum + stringArr[i].length; 
   }
   return sum/stringArr.length;
  }
-
+ else {
+  return null;
+ }
+}
  console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 
 function avg(mixedAvg) {
-  return sum(mixedAvg)/mixedAvg.length;
+  if (mixedAvg.length >0) {
+    return sum(mixedAvg)/mixedAvg.length;
+  } 
+  else {
+  return null;
+}
 }
 
 console.log(avg(mixedArr));
@@ -114,12 +135,17 @@ const wordsUnique = [
 
 function uniquifyArray(unique) {
   let newArr = [];
+  if (unique.length>0) {
   for(let i=0; i<unique.length;i++){
         if (newArr.indexOf(unique[i]) === -1){  // indexof = -1 there arent the words inthis array.
           newArr.push(unique[i]);          // if -1, add the word to the new array.
         }
   }
   return newArr;
+}
+else {
+  return null;
+}
 }
 
 console.log(uniquifyArray(wordsUnique));
@@ -128,7 +154,12 @@ console.log(uniquifyArray(wordsUnique));
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(findingwords,awordtosearch) {
+  if (findingwords.length>0) {
   return findingwords.includes(awordtosearch);
+} 
+else {
+  return null;
+}
 }
 console.log(doesWordExist(wordsFind,'machie'));
 
